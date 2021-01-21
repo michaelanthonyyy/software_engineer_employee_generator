@@ -20,7 +20,7 @@ inquirer
         {
         type: "input",
         message: "What is your ID?",
-        type: "identification",
+        name: "identification",
         },
         {
         type: "input",
@@ -34,6 +34,18 @@ inquirer
         choices: ["Manager", "Engineer", "Intern"]
         }
     ])
+    .then(function({ name, identification, email, role }) {
+        // ^object deconstruction based off user input/user role
+
+
+            // switch statement with roles as... cases?
+            // can you switch between cases
+    })
+
+
+
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
