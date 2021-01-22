@@ -10,69 +10,83 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-inquirer
-    .prompt([
-        {
-        type: "input",
-        message: "What is your name?",
-        name: "name",
-        },
-        {
-        type: "input",
-        message: "What is your ID?",
-        name: "id",
-        },
-        {
-        type: "input",
-        message: "What is your email?",
-        name: "email",
-        },
-        {
-        type: "list",
-        message: "What is your role?",
-        name: "role",
-        choices: ["Manager", "Engineer", "Intern"]
-        }
-    ])
-    .then(function({ name, identification, email, role }) {
-        // ^object deconstruction based off user input/user role
-        
+function createEmployee() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is your name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is your ID?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is your email?",
+                name: "email",
+            },
+            {
+                type: "list",
+                message: "What is your role?",
+                name: "role",
+                choices: ["Manager", "Engineer", "Intern"]
+            }
+        ])
+        .then(function ({ name, identification, email, role }) {
+            // ^object deconstruction based off user input/user role
+
 
             // switch statement with roles as... cases?
             // can you switch between cases
-    })
+        })
+}
+createEmployee()
 
-function createManager ({ name, identification, email }) {
+
+
+// individual function to create Manager employee
+function createManager({ name, identification, email, role }) {
+    const role = Manager 
     inquirer
-    .prompt({
-        type: "input",
-        message: "What is your office number?",
-        name: "officeNumber",
-    }) .then(function ({ officeNumber }) {
-        createManager(name, identification, email, officeNumber)
-    })
-
-function createEngineer ({ name, identification, email }) {
-        inquirer
+        .prompt({
+            type: "input",
+            message: "What is your office number?",
+            name: "officeNumber",
+        }).then(function ({ officeNumber }) {
+            createManager(name, identification, email, officeNumber)
+        })
+}
+createManager();
+// individual function to create Engineer employee
+function createEngineer({ name, identification, email, role }) {
+    const role = Engineer
+    inquirer
         .prompt({
             type: "input",
             message: "What is your Github username?",
             name: "github",
-        }) .then(function ({ github }) {
+        }).then(function ({ github }) {
             createEngineer(name, identification, email, github)
         })
-
-function createIntern ({ name, identification, email }) {
+}
+createEngineer();
+// individual function to create Intern employee
+function createIntern({ name, identification, email, role }) {
+    const role = Intern
     inquirer
-    .prompt({
-        type: "input",
-        message: "What school do you atten?",
-        name: "school",
-    }) .then(function ({ school }) {
-        createIntern(name, identification, email, school)
-    })
+        .prompt({
+            type: "input",
+            message: "What school do you atten?",
+            name: "school",
+        }).then(function ({ school }) {
+            createIntern(name, identification, email, school)
+        })
+}
+createIntern();
 
-}}}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
