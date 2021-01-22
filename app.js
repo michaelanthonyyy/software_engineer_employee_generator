@@ -9,6 +9,9 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+// ref (./library/htmlRenderer.js line 26, 36, 46
+let createManager = render.renderManager
+
 
 function createEmployee() {
     inquirer
@@ -45,8 +48,9 @@ function createEmployee() {
                             message: "What is your Office Number?",
                             name: "officeNumber"
                         }).then(function ({ officeNumber }) {
-                            createManager(name, id, email, officeNumber);
+                            createManager = (name, id, email, officeNumber);
                             // threw back error. should const be made to render manager? **ref htmlRenderer.js**
+                            console.log(createManager);
                             createNewEmployee();
                         })
                     break
@@ -84,8 +88,8 @@ function createNewEmployee() {
         type: "confirm",
         message: "Would you like to create a new Employee?",
         name: "newEmployee",
-    }).then (function ({ newEmployee }) {
-        if (createNewEmployee) {
+    }).then (function ({ newEmployee}) {
+        if (newEmployee) {
             console.log("Let's create a new employee file");
             createEmployee();
         } else {
