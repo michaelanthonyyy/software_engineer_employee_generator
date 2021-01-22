@@ -45,7 +45,8 @@ function createEmployee() {
                             message: "What is your Office Number?",
                             name: "officeNumber"
                         }).then(function ({ officeNumber }) {
-                            createManager(name, id, email, officeNumber)
+                            createManager(name, id, email, officeNumber);
+                            // threw back error. should const be made to render manager? **ref htmlRenderer.js**
                             createNewEmployee();
                         })
                     break
@@ -56,7 +57,8 @@ function createEmployee() {
                             message: "What is your Github username?",
                             name: "github",
                         }).then(function ({ github }) {
-                            createEngineer(name, id, email, github)
+                            createEngineer(name, id, email, github);
+                            createNewEmployee();
                         })
                     break
                 case "Intern":
@@ -66,7 +68,8 @@ function createEmployee() {
                             message: "What school do you go to?",
                             name: "school"
                         }).then(function ({ school }) {
-                            createIntern(name, id, email, school)
+                            createIntern(name, id, email, school);
+                            createNewEmployee();
                         })
 
             }
