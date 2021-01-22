@@ -42,10 +42,11 @@ function createEmployee() {
                     inquirer
                         .prompt({
                             type: "input",
-                            message: "What is your Office Number",
+                            message: "What is your Office Number?",
                             name: "officeNumber"
                         }).then(function ({ officeNumber }) {
                             createManager(name, id, email, officeNumber)
+                            createNewEmployee();
                         })
                     break
                 case "Engineer":
@@ -72,15 +73,24 @@ function createEmployee() {
         })
 }
 
-
-
-// switch statement with roles as... cases?
-// can you switch between cases
-
-
-
 createEmployee()
 
+function createNewEmployee() {
+    inquirer
+    .prompt({
+        type: "confirm",
+        message: "Would you like to create a new Employee?",
+        name: "newEmployee",
+    }).then (function ({ newEmployee }) {
+        if (createNewEmployee) {
+            console.log("Let's create a new employee file");
+            createEmployee();
+        } else {
+            console.log("Guess we're done here");
+        }
+        }
+    )
+}
 
 
 // individual function to create Manager employee
