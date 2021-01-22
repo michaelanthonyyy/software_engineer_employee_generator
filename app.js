@@ -35,7 +35,15 @@ function createEmployee() {
                 choices: ["Manager", "Engineer", "Intern"]
             }
         ])
-        .then(function ({ name, identification, email, role }) {
+        .then(function (data) {
+            if (data.role === "Manager") {
+                createManager();
+                createEmployee();
+            } else if (data.role === "Engineer") {
+                createEngineer();
+            } else {
+                createIntern(); 
+            }
             // ^object deconstruction based off user input/user role
 
 
@@ -43,13 +51,13 @@ function createEmployee() {
             // can you switch between cases
         })
 }
+
 createEmployee()
 
 
 
 // individual function to create Manager employee
 function createManager({ name, identification, email, role }) {
-    const role = Manager 
     inquirer
         .prompt({
             type: "input",
@@ -59,10 +67,9 @@ function createManager({ name, identification, email, role }) {
             createManager(name, identification, email, officeNumber)
         })
 }
-createManager();
+// createManager();
 // individual function to create Engineer employee
 function createEngineer({ name, identification, email, role }) {
-    const role = Engineer
     inquirer
         .prompt({
             type: "input",
@@ -72,10 +79,9 @@ function createEngineer({ name, identification, email, role }) {
             createEngineer(name, identification, email, github)
         })
 }
-createEngineer();
+// createEngineer();
 // individual function to create Intern employee
 function createIntern({ name, identification, email, role }) {
-    const role = Intern
     inquirer
         .prompt({
             type: "input",
@@ -85,7 +91,7 @@ function createIntern({ name, identification, email, role }) {
             createIntern(name, identification, email, school)
         })
 }
-createIntern();
+// createIntern();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
