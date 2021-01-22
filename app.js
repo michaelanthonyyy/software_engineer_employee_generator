@@ -20,7 +20,7 @@ inquirer
         {
         type: "input",
         message: "What is your ID?",
-        name: "identification",
+        name: "id",
         },
         {
         type: "input",
@@ -36,16 +36,43 @@ inquirer
     ])
     .then(function({ name, identification, email, role }) {
         // ^object deconstruction based off user input/user role
-
+        
 
             // switch statement with roles as... cases?
             // can you switch between cases
     })
 
+function createManager ({ name, identification, email }) {
+    inquirer
+    .prompt({
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber",
+    }) .then(function ({ officeNumber }) {
+        createManager(name, identification, email, officeNumber)
+    })
 
+function createEngineer ({ name, identification, email }) {
+        inquirer
+        .prompt({
+            type: "input",
+            message: "What is your Github username?",
+            name: "github",
+        }) .then(function ({ github }) {
+            createEngineer(name, identification, email, github)
+        })
 
+function createIntern ({ name, identification, email }) {
+    inquirer
+    .prompt({
+        type: "input",
+        message: "What school do you atten?",
+        name: "school",
+    }) .then(function ({ school }) {
+        createIntern(name, identification, email, school)
+    })
 
-
+}}}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
