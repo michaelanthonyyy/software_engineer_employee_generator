@@ -6,12 +6,12 @@ const path = require("path");
 const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputPath = path.join(OUTPUT_DIR, "main.html");
 
 const render = require("./lib/htmlRenderer");
 // ref (./library/htmlRenderer.js line 26, 36, 46
-let createManager = render.renderManager
-
+// render.renderManager
+// render.renderMain
 
 function createEmployee() {
     inquirer
@@ -94,6 +94,7 @@ function createNewEmployee() {
             createEmployee();
         } else {
             console.log("Guess we're done here");
+            renderMain
         }
         }
     )
