@@ -35,63 +35,95 @@ function createEmployee() {
                 choices: ["Manager", "Engineer", "Intern"]
             }
         ])
-        .then(function (data) {
-            if (data.role === "Manager") {
-                createManager();
-                createEmployee();
-            } else if (data.role === "Engineer") {
-                createEngineer();
-            } else {
-                createIntern(); 
+        .then(function ({ name, id, email, role }) {
+            switch (role) {
+                // switch statement with breaks to hopefully stop code from infinitely running
+                case "Manager":
+                    inquirer
+                        .prompt({
+                            type: "input",
+                            message: "What is your Office Number",
+                            name: "officeNumber"
+                        }).then(function ({ officeNumber }) {
+                            createManager(name, id, email, officeNumber)
+                        })
+                    break
+                case "Engineer":
+                    inquirer
+                        .prompt({
+                            type: "input",
+                            message: "What is your Github username?",
+                            name: "github",
+                        }).then(function ({ github }) {
+                            createEngineer(name, id, email, github)
+                        })
+                    break
+                case "Intern":
+                    inquirer
+                        .prompt({
+                            type: "input",
+                            message: "What school do you go to?",
+                            name: "school"
+                        }).then(function ({ school }) {
+                            createIntern(name, id, email, school)
+                        })
+
             }
-            // ^object deconstruction based off user input/user role
-
-
-            // switch statement with roles as... cases?
-            // can you switch between cases
         })
 }
+
+
+
+// switch statement with roles as... cases?
+// can you switch between cases
+
+
 
 createEmployee()
 
 
 
 // individual function to create Manager employee
-function createManager({ name, identification, email, role }) {
-    inquirer
-        .prompt({
-            type: "input",
-            message: "What is your office number?",
-            name: "officeNumber",
-        }).then(function ({ officeNumber }) {
-            createManager(name, identification, email, officeNumber)
-        })
-}
-// createManager();
-// individual function to create Engineer employee
-function createEngineer({ name, identification, email, role }) {
-    inquirer
-        .prompt({
-            type: "input",
-            message: "What is your Github username?",
-            name: "github",
-        }).then(function ({ github }) {
-            createEngineer(name, identification, email, github)
-        })
-}
-// createEngineer();
-// individual function to create Intern employee
-function createIntern({ name, identification, email, role }) {
-    inquirer
-        .prompt({
-            type: "input",
-            message: "What school do you atten?",
-            name: "school",
-        }).then(function ({ school }) {
-            createIntern(name, identification, email, school)
-        })
-}
+// function createManager({ name, identification, email, role }) {
+//     inquirer
+//         .prompt({
+//             type: "input",
+//             message: "What is your office number?",
+//             name: "officeNumber",
+//         }).then(function ({ officeNumber }) {
+//             createManager(name, identification, email, officeNumber)
+//         })
+// }
+// // createManager();
+// // individual function to create Engineer employee
+// function createEngineer({ name, identification, email, role }) {
+//     inquirer
+//         .prompt({ 
+//             type: "input",
+//             message: "What is your Github username?",
+//             name: "github",
+//         }).then(function ({ github }) {
+//             createEngineer(name, identification, email, github)
+//         })
+// }
+// // createEngineer();
+// // individual function to create Intern employee
+// function createIntern({ name, identification, email, role }) {
+//     inquirer
+//         .prompt({
+//             type: "input",
+//             message: "What school do you atten?",
+//             name: "school",
+//         }).then(function ({ school }) {
+//             createIntern(name, identification, email, school)
+//         })
+
 // createIntern();
+
+
+
+
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
