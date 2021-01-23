@@ -22,7 +22,8 @@ Using a command line, this employee generator will prompt users for team informa
 ## Requirements To Run
 The "Inquirer" npm package must be installed for the readme.md generator to function properly.
 While in Terminal or GitBash depending on your OS, run the command, "npm install inquirer."
-After the "Inquirer" packages have been installed, readme.md generator can be used by running the "node index.js" command. 
+After the "Inquirer" packages have been installed, readme.md generator can be used by running the "node index.js" command.
+ Jest package also needs to be download by running "npm install jest". 
 
 <br>
 <br>
