@@ -14,7 +14,7 @@ Using a command line, this employee generator will prompt users for team informa
 
 ![GIF](Assets/demo.gif)
 
-[Link to Demo Video](https://github.com/michaelanthonyyy/README_generator/blob/main/Assets/employeegenerator_demo.mp4)
+[Link to Demo Video](https://github.com/michaelanthonyyy/software_engineer_employee_generator/blob/main/Assets/employeegenerator_demo.mp4)
 <br>
 <br>
 
